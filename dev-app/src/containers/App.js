@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/button';
 
-import Person from './Person/Person';
-import TalentDev from './TalentDev/TalentDev';
+import Persons from '../components/Persons/Persons';
+import TalentDev from '../components/TalentDev/TalentDev';
+import ButtonAppBar from '../Material/AppBar/AppBar';
 import './App.css';
 
 class App extends Component {
@@ -55,41 +57,32 @@ class App extends Component {
   }
 
   render () {
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
-
     let persons = null;
     //Converting the array into JSX with .map() method
     if (this.state.showPersons) {
       persons = (
         <div>
-        {this.state.persons.map((person, index) => {
-          return <Person 
-            click={() => this.deletePersonHandler(index)}
-            name={person.name}
-            employed={person.employed} 
-            key={person.id}
-            changed={(event) => this.employedChangedHandler(event, person.id)}
+          <Persons 
+            persons={this.state.persons}
+            clicked={this.deletePersonHandler}
+            changed={this.employedChangedHandler}
             />
-        })}
         </div> 
       );
     }
   
     return ( 
       <div className="App">
-        <h1>Dev App</h1>
-        <button 
-          style={style}
+        <ButtonAppBar />
+
+        <Button 
+          variant="contained"
+          color="primary"
           onClick={this.togglePersonsHandler}>
           View Employee List
-        </button>
-      {persons}
+        </Button>
+         {persons}
+
       <hr />
         <input 
           type="text" 

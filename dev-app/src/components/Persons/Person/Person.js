@@ -2,6 +2,7 @@ import React from 'react';
 
 import './Person.css';
 
+//The function body encompases the return statement 
 const person = ( props ) => {
     return (
         <div className="Person">

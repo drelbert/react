@@ -211,3 +211,11 @@ React
             from parent (wrapping) component 
             to 
             child (embedded) component
+
+
+# Sect 4-6 see app and styling covered with material.io
+
+
+# Sect 7 Components and React Internals 
+
+    
