@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './Person.css';
 
-//The function body encompases the return statement 
-const person = ( props ) => {
-    return (
-        <div className="Person">
-            <p onClick={props.click}>{props.name} : Employed for  {props.employed} years.</p>
-            <p>{props.children}</p>
-            <p>Update Employment Years:
-            <input type="text" onChange={props.changed} value={props.employed} />
-            </p>
-        </div>
-    )
-};
+//Converted to class based components
+class Person extends Component {
+    render() {
+        console.log('[Person.js] this is person...');
+        return (
+            <div className="Person">
+                <p onClick={this.props.click}>{this.props.name} : Employed for  {this.props.employed} years.</p>
+                <p>{this.props.children}</p>
+                <p>Update Employment Years:
+                <input type="text" 
+                    onChange={this.props.changed} 
+                    value={this.props.employed} />
+                </p>
+            </div>
+        );
+    }
+}
 
-export default person;
+export default Person;

@@ -162,7 +162,7 @@
 
         //array 
             const set = [1, 'Dave', 5, true];
-            [extOne, extTwo] = set;
+            const [extOne, extTwo] = set;
             // to change up what is returned use this
             //[extOne, , extBar]
             console.log(extOne, extTwo);

@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import Button from '@material-ui/core/button';
 
+import Base from '../components/Base/Base';
 import Persons from '../components/Persons/Persons';
 import TalentDev from '../components/TalentDev/TalentDev';
 import ButtonAppBar from '../Material/AppBar/AppBar';
+
 import './App.css';
 
 class App extends Component {
+  //This sytax takes care of setting the constructor(props), super(props)
+  //So no need to explicitly add it
   state = {
     persons: [
       { id: 'emp22', name: 'El Dorado', employed: 4 },
@@ -17,6 +20,21 @@ class App extends Component {
     showPersons: false,
     userInput: ''
   }
+
+  //Adding lifecycle hooks, will remove later 
+  componentDidMount() {
+    console.log('[App.js] componentDidMount');
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[App.js shouldComponentUpdate')
+    return true;
+  }
+
+  componentDidUpdate() {
+    console.log('[App.js componentDidUpdate')
+  }
+  //End of lifecycle hooks 
 
   employedChangedHandler = ( event, id  ) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -58,29 +76,23 @@ class App extends Component {
 
   render () {
     let persons = null;
-    //Converting the array into JSX with .map() method
     if (this.state.showPersons) {
-      persons = (
-        <div>
-          <Persons 
+      persons = <Persons 
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
             changed={this.employedChangedHandler}
-            />
-        </div> 
-      );
+            />;
     }
   
     return ( 
       <div className="App">
-        <ButtonAppBar />
-
-        <Button 
-          variant="contained"
-          color="primary"
-          onClick={this.togglePersonsHandler}>
-          View Employee List
-        </Button>
+        <ButtonAppBar
+        />
+        <Base 
+          showPersons={this.state.showPersons}
+          persons={this.state.persons}
+          clicked={this.togglePersonsHandler}
+        />
          {persons}
 
       <hr />
