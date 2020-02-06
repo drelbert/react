@@ -4,14 +4,21 @@ React
      create-react-app talent-app-reac --scripts=version 1.1.5
      this command defines a certain structure 
 
-     or
-    create-react-app 
+     or see the 
+     https://create-react-app.dev/docs/getting-started
+
+     
+
 
  run 
      npm start
 
  npm installs:
     routing (3rd party) = npm install react-router-dom
+
+
+    for PropTypes that allow for data type clarity 
+    npm install --save prop-types
       
 
 # Getting Started 
@@ -218,4 +225,15 @@ React
 
 # Sect 7 Components and React Internals 
 
+
+# Sect 8 Project Build 
+    planning a React app 
+        define the component tree - component structure 
     
+        define the data = app state that will be present
+
+        plan components v containers 
+            stateless/dumb = functional with no hooks
+            statefull = functional(useState Hook) or class based using the state property
+
+
